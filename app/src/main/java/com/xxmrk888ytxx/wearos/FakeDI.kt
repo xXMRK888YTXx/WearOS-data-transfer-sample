@@ -3,6 +3,7 @@ package com.xxmrk888ytxx.wearos
 import android.annotation.SuppressLint
 import android.content.Context
 import com.xxmrk888ytxx.batterylevelprovider.LocalBatteryLevelProvider
+import com.xxmrk888ytxx.dataclientmanager.DataClientManagerImpl
 import com.xxmrk888ytxx.datamanager.RemoteBatteryLevelProviderImpl
 import com.xxmrk888ytxx.messagemanager.MessageManagerImpl
 import com.xxmrk888ytxx.remotebatterylevelprovider.RemoteBatteryLevelSender
@@ -23,15 +24,19 @@ internal object FakeDI : DI {
     }
 
     private val RemoteBatteryLevelSenderImpl by lazy {
-        RemoteBatteryLevelSender(Const.BATTERY_PATH_MOBILE, context!!)
+        RemoteBatteryLevelSender(Const.BATTERY_PATH_MOBILE, dataClientManager)
     }
 
     private val remoteBatteryLevelProviderImpl by lazy {
-        RemoteBatteryLevelProviderImpl(Const.BATTERY_PATH_WEAR, context!!)
+        RemoteBatteryLevelProviderImpl(Const.BATTERY_PATH_WEAR, dataClientManager)
     }
 
     private val messageManagerImpl by lazy {
         MessageManagerImpl(context!!)
+    }
+
+    private val dataClientManager by lazy {
+        DataClientManagerImpl(context!!)
     }
 
 

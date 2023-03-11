@@ -10,6 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/DataClientManager" />
             <option value="$PROJECT_DIR$/LocalBatteryLevelProvider" />
             <option value="$PROJECT_DIR$/MessageManager" />
             <option value="$PROJECT_DIR$/RemoteBatteryLevelNotificator" />
